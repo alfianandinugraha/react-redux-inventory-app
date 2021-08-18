@@ -9,10 +9,14 @@ import {
 } from '@material-ui/core'
 import { Add, Delete, Remove } from '@material-ui/icons'
 import React from 'react'
+import { useDispatch } from 'react-redux'
+import { deleteProduct } from '@/store/Product/Actions'
 
 interface ProductItemProps extends Product {}
 
 const ProductItem = (props: ProductItemProps) => {
+  const dispatcher = useDispatch()
+
   return (
     <Card>
       <CardContent>
@@ -37,7 +41,13 @@ const ProductItem = (props: ProductItemProps) => {
           </Grid>
           <Grid item>
             <ButtonGroup>
-              <Button color="secondary" variant="contained">
+              <Button
+                color="secondary"
+                variant="contained"
+                onClick={() => {
+                  dispatcher(deleteProduct(props.id))
+                }}
+              >
                 <Delete style={{ fontSize: 16 }} />
               </Button>
             </ButtonGroup>
