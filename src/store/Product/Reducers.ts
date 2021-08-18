@@ -19,6 +19,17 @@ const foodReducer = (
         products: store.products.filter((product) => product.id !== id),
       }
     }
+    case 'INCREMENT_PRODUCT': {
+      const id = action.payload.id || ''
+      return {
+        products: store.products.map((product) => {
+          return {
+            ...product,
+            stock: product.id === id ? product.stock + 1 : product.stock,
+          }
+        }),
+      }
+    }
     default: {
       return {
         products: store.products,
