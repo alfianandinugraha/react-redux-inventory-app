@@ -24,4 +24,11 @@ const incrementProduct = (id: string): ProductAction => {
   }
 }
 
-export { addProduct, deleteProduct, incrementProduct }
+const decrementProduct = (id: string): ProductAction => {
+  return {
+    type: 'DECREMENT_PRODUCT',
+    payload: { id },
+  }
+}
+
+export { addProduct, deleteProduct, incrementProduct, decrementProduct }

@@ -30,6 +30,20 @@ const foodReducer = (
         }),
       }
     }
+    case 'DECREMENT_PRODUCT': {
+      const id = action.payload.id || ''
+      return {
+        products: store.products.map((product) => {
+          return {
+            ...product,
+            stock:
+              product.id === id && product.stock > 0
+                ? product.stock - 1
+                : product.stock,
+          }
+        }),
+      }
+    }
     default: {
       return {
         products: store.products,

@@ -10,7 +10,11 @@ import {
 import { Add, Delete, Remove } from '@material-ui/icons'
 import React from 'react'
 import { useDispatch } from 'react-redux'
-import { deleteProduct, incrementProduct } from '@/store/Product/Actions'
+import {
+  decrementProduct,
+  deleteProduct,
+  incrementProduct,
+} from '@/store/Product/Actions'
 
 interface ProductItemProps extends Product {}
 
@@ -31,7 +35,12 @@ const ProductItem = (props: ProductItemProps) => {
         >
           <Grid item>
             <ButtonGroup>
-              <Button color="secondary">
+              <Button
+                color="secondary"
+                onClick={() => {
+                  dispatcher(decrementProduct(props.id))
+                }}
+              >
                 <Remove style={{ fontSize: 16 }} />
               </Button>
               <Button
