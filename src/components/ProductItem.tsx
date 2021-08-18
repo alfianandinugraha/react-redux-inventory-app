@@ -10,7 +10,7 @@ import {
 import { Add, Delete, Remove } from '@material-ui/icons'
 import React from 'react'
 import { useDispatch } from 'react-redux'
-import { deleteProduct } from '@/store/Product/Actions'
+import { deleteProduct, incrementProduct } from '@/store/Product/Actions'
 
 interface ProductItemProps extends Product {}
 
@@ -34,7 +34,12 @@ const ProductItem = (props: ProductItemProps) => {
               <Button color="secondary">
                 <Remove style={{ fontSize: 16 }} />
               </Button>
-              <Button color="primary">
+              <Button
+                color="primary"
+                onClick={() => {
+                  dispatcher(incrementProduct(props.id))
+                }}
+              >
                 <Add style={{ fontSize: 16 }} />
               </Button>
             </ButtonGroup>
