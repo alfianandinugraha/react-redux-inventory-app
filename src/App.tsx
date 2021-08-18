@@ -7,7 +7,6 @@ import {
   TextField,
   Typography,
 } from '@material-ui/core'
-import { Product } from 'state'
 import ProductList from '@/components/ProductList'
 
 const App = (): React.ReactElement => {
