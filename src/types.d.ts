@@ -5,3 +5,9 @@ declare module 'state' {
     stock: number
   }
 }
+
+declare module 'store' {
+  import { ProductStore } from 'ProductStore'
+
+  export interface Store extends ProductStore {}
+}
