@@ -17,4 +17,11 @@ const deleteProduct = (id: string): ProductAction => {
   }
 }
 
-export { addProduct, deleteProduct }
+const incrementProduct = (id: string): ProductAction => {
+  return {
+    type: 'INCREMENT_PRODUCT',
+    payload: { id },
+  }
+}
+
+export { addProduct, deleteProduct, incrementProduct }
