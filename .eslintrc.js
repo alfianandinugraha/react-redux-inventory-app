@@ -17,6 +17,14 @@ const config = {
     'plugin:prettier/recommended',
     'prettier/react',
   ],
+  overrides: [
+    {
+      files: ['*.ts', '*.tsx', '*/**.ts'], // Your TypeScript files extension
+      parserOptions: {
+        project: ['./tsconfig.json'], // Specify it only for TypeScript files
+      },
+    },
+  ],
   parserOptions: {
     ecmaFeatures: {
       jsx: true,
@@ -27,7 +35,8 @@ const config = {
   },
   plugins: ['react', '@typescript-eslint', 'prettier'],
   rules: {
-    'no-console': NODE_ENV === 'development' ? 'off' : 'error',
+    'react/display-name': 'off',
+    'no-console': 'off',
     'import/newline-after-import': 'error',
     quotes: ['error', 'single'],
     'prettier/prettier': [
@@ -38,7 +47,12 @@ const config = {
     ],
     semi: 'off',
     '@typescript-eslint/semi': 'off',
-    'arrow-body-style': ['error', 'as-needed'],
+    'arrow-body-style': ['off', 'as-needed'],
+    'comma-dangle': 'off',
+    '@typescript-eslint/indent': 'off',
+    '@typescript-eslint/explicit-module-boundary-types': 'off',
+    'react/require-default-props': 'off',
+    'react/prop-types': 'off',
     '@typescript-eslint/comma-dangle': [
       'error',
       {
@@ -47,12 +61,23 @@ const config = {
         functions: 'never',
         imports: 'always-multiline',
         objects: 'always-multiline',
+        enums: 'always-multiline',
       },
     ],
+    '@typescript-eslint/no-empty-interface': [
+      'error',
+      {
+        allowSingleExtends: true,
+      },
+    ],
+    'react/destructuring-assignment': 'off',
+    'react/jsx-props-no-spreading': 'off',
     '@typescript-eslint/no-var-requires': ['off'],
     'import/order': 'error',
     'import/first': 'error',
     'import/no-unresolved': 'off',
+    'import/prefer-default-export': 'off',
+    '@typescript-eslint/return-await': 'off',
   },
 }
 
