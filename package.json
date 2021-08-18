@@ -25,6 +25,7 @@
     "test": "react-app-rewired test",
     "eject": "react-scripts eject",
     "lint": "eslint src/**/*.ts src/**/*.tsx *.js --ignore-path .gitignore --fix",
+    "publish": "gh-pages -d build",
     "reset": "node reset-app.js"
   },
   "eslintConfig": {
